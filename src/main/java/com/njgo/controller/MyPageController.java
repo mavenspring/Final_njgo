@@ -156,6 +156,8 @@ public class MyPageController {
 		
 		int totalCount = memberService.memberTotalCount();  // 회원 총인원
 		
+		
+		
 		listInfo.setPerPage(5);
 		listInfo.setRow(listInfo.getCurPage(),5);			// 페이지당 몇개씩 보여줄지
 		listInfo.makePage(totalCount, 5);					// 페이징처리 
@@ -163,6 +165,7 @@ public class MyPageController {
 		System.out.println("startRow : "+ listInfo.getstartRow());
 		System.out.println("lastRow : "+ listInfo.getLastRow());*/
 		List<MemberDTO> userList = memberService.memberList(listInfo); //회원 리스트
+		
 		model.addAttribute("userList", userList);
 		model.addAttribute("curPage", listInfo.getCurPage());
 		model.addAttribute("listInfo", listInfo);

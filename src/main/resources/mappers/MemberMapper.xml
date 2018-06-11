@@ -88,7 +88,7 @@
 	
 	<!--============================== MyPage 관련 ===================================-->
 	<select id="totalCount" resultType="java.lang.Integer">
-			select count(email) from member
+			select count(email) from member where grade between 0 and 2
 	</select>
 	
 	<select id="total" parameterType="java.util.Map" resultType="java.lang.Integer">
