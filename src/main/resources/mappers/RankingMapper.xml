@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="RankingMapper">
+	
+	
+    <!-- Count -->
+    <select id="count" parameterType="com.njgo.util.ListInfo" resultType="java.lang.Integer">
+    select nvl(count(num), 0) from ranking  
+    </select>
+	
+	
+	
+	
+	<!-- ================좋아요를 누를때 실행되는 커리====================== -->
+	<!-- Count -->
+	<select id="selectCount" parameterType="RecipeDTO" resultType="java.lang.Integer">
+		select count(*) from  ranking 
+		where num = #{num}
+		and regdate between to_char(trunc(sysdate,'mm') ,'yyyymmdd') and to_char(LAST_DAY(SYSDATE),'yyyyMMdd') 
+	</select>
+	
+	<!-- Insert -->
+	<insert id="insert" parameterType="RecipeDTO">
+		insert into ranking
+		(num, hit, scrap, regdate) values
+		(#{num}, #{hit},#{scrap}, to_char(sysdate,'yyyyMMdd')) 
+	</insert>
+	
+	<!-- Update -->
+	<update id="update" parameterType="RecipeDTO">
+	    update ranking set 
+	hit = ( select  hit+1 from ranking where num = #{num} and regdate between to_char(trunc(sysdate,'mm') ,'yyyymmdd') and to_char(LAST_DAY(SYSDATE),'yyyyMMdd')  )
+	where num = #{num}
+	and regdate between to_char(trunc(sysdate,'mm') ,'yyyymmdd') and to_char(LAST_DAY(SYSDATE),'yyyyMMdd') 
+	</update>
+		
+		
+	<!-- ========================Select 1-3================================ -->
+	<select id="selectHit" parameterType="java.util.HashMap" resultType="RankingDTO">
+	select * from 
+	(select rp.num,rep_pic, writer, foodname, rp.regdate, ra.hit
+ 	from ranking ra, recipe rp
+  	where ra.num = rp.num  
+  	and  to_number(to_char(rp.regdate,'yyyymmdd' )) between #{startDate} and #{lastDate}
+  	and ra.hit is not null
+  	order by hit desc)
+  	where 4>rownum
+	</select>
+	
+	<select id="selectScrap" parameterType="java.util.HashMap" resultType="RankingDTO">
+	select *from 
+	(select rp.num,rep_pic, writer, foodname, rp.regdate, ra.scrap
+ 	from ranking ra, recipe rp
+  	where ra.num = rp.num  
+  	and  to_number(to_char(rp.regdate,'yyyymmdd' )) between #{startDate} and #{lastDate}
+  	and ra.hit is not null
+  	order by scrap desc)
+  	where 4>rownum
+	</select>
+	
+	<select id="selectUpload" parameterType="com.njgo.util.ListInfo" resultType="RecipeDTO">
+	
+	select * from
+    (select aa.* from
+    (select writer, count(*)ct, myphoto, sns_photo 
+    from recipe r, member m
+  	where r.writer = m.nickname
+    and to_number(to_char(regdate,'yyyyMMdd')) between #{startDate} and #{lastDate} and r.writer != '운영자' 
+  	group by writer, myphoto, sns_photo 
+   	order by ct desc) aa 
+    )
+     where 4>rownum
+	</select>
+	
+	
+	<!-- ========================Select All================================ -->
+	<select id="selectHitAll" parameterType="com.njgo.util.ListInfo" resultType="RankingDTO">
+	
+	select N.*, rownum from 
+	(select rp.num, writer, foodname, rp.regdate, ra.hit
+ 	from ranking ra, recipe rp
+  	where ra.num (+) = rp.num  
+  	and  to_number(to_char(rp.regdate,'yyyymmdd' )) between #{startDate} and #{lastDate}
+  	and ra.hit is not null
+  	order by hit desc) N
+  	 where 11>rownum
+	</select>
+	
+	<select id="selectTotalHit" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+	select sum(hit)
+	from ranking
+	where num=#{num}
+	group by num
+	</select>
+	
+	<select id="selectScrapAll" parameterType="com.njgo.util.ListInfo" resultType="RankingDTO">
+	select aa.*, rownum from 
+	(select rp.num, writer, foodname, rp.regdate, ra.scrap
+ 	from ranking ra, recipe rp
+  	where ra.num (+) = rp.num  
+  	and  to_number(to_char(rp.regdate,'yyyymmdd' )) between #{startDate} and #{lastDate}
+  	and ra.scrap is not null
+  	order by scrap desc) aa
+  	where 11>rownum
+	</select>
+	
+	<select id="selectTotalScrap" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+	select sum(scrap)
+	from ranking
+	where num=#{num}
+	group by num
+	</select>
+	
+	<select id="selectUploadAll" parameterType="com.njgo.util.ListInfo" resultType="RecipeDTO">
+	select aa.*, rownum from
+	(select writer, count(*)ct
+	from recipe
+  	where to_number(to_char(regdate,'yyyyMMdd')) between #{startDate} and #{lastDate}
+  	group by writer
+   	order by ct desc) aa
+   	where 11>rownum
+	</select>
+	<select id="startDate" resultType="java.lang.String">
+	 select to_char(SYSDATE,'yyyyMM')||'01' from dual
+	</select>
+	
+	<select id="lastDate" resultType="java.lang.String">
+	select to_char(LAST_DAY(SYSDATE),'yyyyMMdd') from dual
+	</select>
+	
+	
+</mapper>

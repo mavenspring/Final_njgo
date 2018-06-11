@@ -31,10 +31,15 @@ public class ProductDAO {
 		return sqlSession.update(NAMESPACE + "proUpdate", productDTO);
 	}
 	
-	public void productDelete() throws Exception{
-		
+	public int productDelete(int pronum) throws Exception{
+		return sqlSession.delete(NAMESPACE + "proDelete", pronum);
 	}
+	
 	public int productCount(RowMaker rowMaker) throws Exception{
 		return sqlSession.selectOne(NAMESPACE + "proCount", rowMaker);
+	}
+	
+	public List<ProductDTO> productCateList(ProductDTO productDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE + "proCateList", productDTO);
 	}
 }

@@ -9,240 +9,7 @@
 <link rel="stylesheet" href="../resources/css/common/reset.css">
 <c:import url="../tmp/Bootstrap.jsp"/>
 <link rel="stylesheet" href="../resources/css/common/basic.css">
-<style type="text/css">
-	.top_section {
-		width: 100%;
-		clear: both;
-		margin-top: 110px;
-	}
-	
-	.carousel-inner>.item>img {
-		width: 100%;
-		height: 360px;
-		min-width: 1200px;
-	}
-	
-	.carousel-inner {
-		height: 360px;
-		min-width: 1200px;
-	}
-	
-	.container {
-		width: 100%;
-		padding: 0px 0px;
-	}
-	
-	.main_section {
-		margin-top: 0px;
-	}
-	
-	.main_menu {
-		margin: 0 auto;
-		width: 60%;
-		height: 50px;
-		background-color: #38332f;
-		min-width: 1150px;
-	}
-	
-	li {
-		display: block;
-	}
-	
-	.ul_nav {
-		width: 100%;
-	}
-	
-	.has_nav {
-		float: left;
-		width: 16%;
-		position: relative;
-	}
-	
-	.ul_nav>li {
-		float: left;
-		position: relative;
-		height: 50px;
-	}
-	
-	.ul_nav>li>div {
-		display: block;
-		text-align: center;
-		font-size: 14px;
-		color: #fff;
-		line-height: 50px;
-		border-right: 1px solid #555;
-		cursor: pointer;
-	}
-	
-	.has_nav:HOVER {
-		background-color: #ffcc00;
-	}
-	
-	.ul_nav>li:first-child {
-		width: 20%;
-	}
-	
-	.ul_nav>li:first-child div {
-		display: block;
-		background: url(../resources/images/csy/hams.png) 12px 13px no-repeat
-			#252221;
-		text-indent: 20px;
-	}
-	
-	.ul_nav>li.all .child {
-		border-left: 1px solid #797979;
-		background-color: #ffcc00;
-	}
-	
-	.ul_nav>li.all .child img {
-		margin-top: 20px;
-		margin-left: 40px;
-		width: 150px;
-		height: 50px;
-	}
-	
-	.ul_nav>li .child {
-		display: none;
-		position: absolute;
-		width: 100%;
-		height: 120px;
-		background: #fff;
-		border: 1px solid #c4c4c4;
-		z-index: 9999;
-		border-bottom: 1px solid #797979;
-		overflow: hidden;
-		padding-top: 10px;
-		border-collapse: collapse;
-	}
-	
-	.ul_nav>li .child li div {
-		text-indent: 24px;
-		font-size: 12px;
-		line-height: 2;
-		display: block;
-		cursor: pointer;
-	}
-	
-	.ul_nav>li .child li div:HOVER {
-		color: #ffcc00;
-	}
-	
-	.child div {
-		margin-left: 10px;
-	}
-	
-	.wrap {
-		width: 100%;
-		height: 1500px;
-	}
-	
-	.sort_wrap {
-		height: 35px;
-		padding-top: 10px;
-		margin-top: 10px;
-	}
-	
-	.sort_wrap em {
-		color: #222;
-		font-weight: 700;
-		vertical-align: baseline;
-		display: inline;
-		font-style: normal;
-	}
-	.sort_left{
-		margin-top: 5px;
-	}
-	.sort_right{
-		float: right;
-		font-size: 18px;
-		font-weight: bold;
-	}
-	
-	.pro_list {
-		margin-top: 15px;
-		clear: both;
-	}
-	
-	.pro_one {
-		width: 23.5%;
-		height: 310px;
-		border: 1px solid #cfcfcf;
-		margin-bottom: 20px;
-		margin-right: 2%;
-		float: left;
-	}
-	
-	.pro_one img {
-		margin: 0 auto;
-		width: 200px;
-		height: 200px;
-		display: table-cell;
-		cursor: pointer;
-	}
-	
-	.pro_one:nth-child(4n) {
-		margin-right: 0px;
-	}
-	
-	.pro_one_intro {
-		padding: 20px 25px 0 25px;
-		border-top: 1px solid #cfcfcf;
-		line-height: normal;
-	}
-	
-	.pro_name {
-		font-size: 14px !important;
-		color: #565656 !important;
-		text-align: left;
-		display: inline-block;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		white-space: nowrap;
-		width: 100%;
-		margin-bottom: 15px;
-		font-weight: bold;
-		cursor: pointer;
-	}
-	.price_title {
-	    font-size: 13px;
-	    color: #aaaaaa;
-	    letter-spacing: -1px;
-	    line-height: 15px;
-	    width: 30%;
-	    display: inline-block;
-	    text-align: left;
-	}
-	.price {
-		font-size: 14px;
-		color: #000000; 
-		font-weight : bold; 
-		line-height : 16px;
-		width: 60%; 
-		display : inline-block;
-		text-align: right;
-	}
-	
-	.price_one {
-		font-size: 12px;
-		color: #000000; 
-		font-weight : bold; 
-		line-height : 16px; 
-		width : 5%;
-		display : inline-block;
-		text-align: right;
-	}
-	.pro_hover{
-	    left: -1px;
-	    bottom: -1px;
-	    width: 100%;
-	    height: 23px;
-	    background-color: #38332f;
-	    color: white;
-	    text-align: center;
-	    display: none;
-	    cursor: pointer;
-	}
-</style>
+<link rel="stylesheet" href="../resources/css/csy/product/productList.css">
 </head>
 <body>
 	<c:import url="../tmp/header.jsp"/>
@@ -257,17 +24,17 @@
 			</ol>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active">
+				<div class="item active" data-rnum="19">
 					<img src="../resources/images/csy/main_img1.jpg" height= "360px">
 				</div>
-				<div class="item">
-					<img src="../resources/images/csy/main_img3.jpg" height= "360px">
+				<div class="item" data-rnum="20">
+					<a><img src="../resources/images/csy/main_img3.jpg" height= "360px"></a>
 				</div>
-				<div class="item">
-					<img src="../resources/images/csy/main_img4.jpg" height= "360px">
+				<div class="item" data-rnum="21">
+					<a><img src="../resources/images/csy/main_img4.jpg" height= "360px"></a>
 				</div>				
-				<div class="item">
-					<img src="../resources/images/csy/main_img5.jpg" height= "360px">
+				<div class="item" data-rnum="22">
+					<a><img src="../resources/images/csy/main_img5.jpg" height= "360px"></a>
 				</div>
 			</div>
 
@@ -337,11 +104,6 @@
 			<div class="wrap">
 				
 			</div>
-			
-			<a href="productWrite">제품 등록</a>
-			<a href="productUpdate?pronum=2">제품 수정</a>
-			<a href="cart/productCart">장바구니 Form</a>
-			<a href="pay/payProcess">결제창</a>
 		</div>
 	</section>
 	
@@ -352,19 +114,7 @@
 		if(m != ''){
 			alert(m);
 		}
-		var curPage=1;
-		$.ajax({
-			url: "productList_wrap",
-			type: "POST",
-			data: {
-				curPage: curPage,
-				cate_major: "",
-				cate_minor: ""
-			},
-			success: function(data) {
-				$(".wrap").html(data);
-			}
-		});
+		listPage(1, '', '');
 		
 		/******** 스크롤 이동시 상단 메뉴 고정 ************/
 		var topHeadHeight = 110;	//header height
@@ -419,12 +169,7 @@
 			}
 		});
 		
-		/*********** product list Hover **********/
-		$(".pro_one").hover(function() {
-			$(this).find(".pro_hover").css("display","block");
-		}, function() {
-			$(this).find(".pro_hover").css("display","none");
-		});
+		
 		
 		
 		$(".menu_nav, .child_nav").click(function() {			
@@ -449,34 +194,33 @@
 			}else{
 				major = $(this).html();
 			}
+			listPage(1, major, minor);
+		});
+		$(".all_open").click(function() {
+			listPage(1, '', '');
+		});
+		
+		/*********** 페이지, 카테고리에 따른 페이징처리 **********/
+		function listPage(curPage, cate_major, cate_minor) {
 			$.ajax({
 				url: "productList_wrap",
 				type: "POST",
 				data: {
 					curPage: curPage,
-					cate_major: major,
-					cate_minor: minor
+					cate_major: cate_major,
+					cate_minor: cate_minor
 				},
 				success: function(data) {
 					$(".wrap").html(data);
 				}
 			});
+		}
+		
+		/**************** 상단 광고 레시피 *******************/
+		$(".item").click(function() {
+			var num = $(this).attr("data-rnum");
+			location.href = "../recipe/recipeView?num=" + num;
 		});
-		$(".all_open").click(function() {
-			$.ajax({
-				url: "productList_wrap",
-				type: "POST",
-				data: {
-					curPage: 1,
-					cate_major: '',
-					cate_minor: ''
-				},
-				success: function(data) {
-					$(".wrap").html(data);
-				}
-			});
-		});
-
 	</script>
 </body>
 </html>

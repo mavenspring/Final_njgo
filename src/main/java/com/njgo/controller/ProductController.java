@@ -2,6 +2,8 @@ package com.njgo.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +15,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.njgo.dto.MultiFileDTO;
-import com.njgo.dto.ProductCartDTO;
 import com.njgo.dto.ProductDTO;
 import com.njgo.service.FileService;
 import com.njgo.service.ProductService;
-import com.njgo.util.ListInfo;
+import com.njgo.util.CookieUtils;
 import com.njgo.util.MakePage;
 import com.njgo.util.PageMaker;
 import com.njgo.util.RowMaker;
@@ -49,26 +50,44 @@ public class ProductController {
 		model.addAttribute("makePage", makePage);
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("rowMaker", rowMaker);
+		model.addAttribute("curPage", curPage);
 		return "product/productList_wrap";
 	}
 	
 	@RequestMapping(value = "productView", method = RequestMethod.GET)
-	public void productView(Model model, Integer pronum) throws Exception{
-		if(pronum != null){ 
+	public String productView(Model model, Integer pronum, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		if(pronum != null){			
+			//productView Controller
 			ProductDTO productDTO = productService.productView(pronum);
-			model.addAttribute("productDTO", productDTO);
+			
+			
+			if(productDTO != null){
+				List<ProductDTO> cateList = productService.productCateList(productDTO);
+				
+				model.addAttribute("productDTO", productDTO);
+				model.addAttribute("cateList", cateList);
+				
+				//쿠키 추가
+				CookieUtils cookieUtils = new CookieUtils();
+				cookieUtils.setCookie("productClick", pronum.toString(), 1, request, response);
+				
+				return "product/productView";				
+			}else{
+				return "redirect:/errorPage";
+			}
+		}else{
+			return "redirect:/errorPage";
 		}
 	}
 	
 	@RequestMapping(value = "productWrite", method = RequestMethod.GET)
-	public String productWrite(Model model){
+	public String productWrite(Model model) throws Exception{
 		model.addAttribute("path", "Write");
 		return "product/productWrite";
 	}
 	
 	@RequestMapping(value = "productWrite", method = RequestMethod.POST)
 	public ModelAndView productWrite(ProductDTO productDTO, MultiFileDTO multiFileDTO, HttpSession session, RedirectAttributes reAttributes) throws Exception{
-		System.out.println("productWrite Process");
 		productDTO.setF_mainimg(fileService.fileSave(multiFileDTO.getF1(), session));
 		productDTO.setO_mainimg(multiFileDTO.getF1().getOriginalFilename());
 		productDTO.setF_detailimg(fileService.fileSave(multiFileDTO.getF2(), session));
@@ -137,5 +156,20 @@ public class ProductController {
 		reAttributes.addFlashAttribute("message", message);
 		mv.setViewName("redirect:productList");
 		return mv;
+	}
+	
+	@RequestMapping(value = "productDelete")
+	public String productDelete(Integer pronum, RedirectAttributes reAttributes, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		int result = productService.productDelete(pronum);
+		CookieUtils cookieUtils = new CookieUtils();
+		if(cookieUtils.isExist("productClick", request)){
+			cookieUtils.deleteCookie("productClick", pronum.toString(), request, response);
+		}
+		String message = "상품 삭제에 실패했습니다. 다시 시도해주세요.";
+		if(result > 0){
+			message = "상품 삭제가 완료되었습니다.";
+		}
+		reAttributes.addFlashAttribute("message", message);
+		return "redirect:productList";
 	}
 }

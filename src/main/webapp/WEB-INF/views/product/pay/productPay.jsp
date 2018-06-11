@@ -10,354 +10,7 @@
 <link rel="stylesheet" href="../../resources/css/common/reset.css">
 <c:import url="../../tmp/Bootstrap.jsp"/>
 <link rel="stylesheet" href="../../resources/css/common/basic.css">
-<style type="text/css">
-	.main_section{
-		margin-top: 80px;
-		min-height: 1000px;
-	}
-	.container{
-		width: 100%;
-	}
-	.ct_inner {
-    	position: relative;
-    	width: 100%;
-    	margin: 26px auto 50px;
-	}
-	.ct_header {
-	    position: relative;
-	    height: 100px;
-	    padding-top: 34px;
-	}
-	.step_tit_1 {
-	    float: left;
-	    margin-right: 6px;
-	}
-	.step_tit_1 i{
-	    font-size: 35px;
-	    font-family: Tahoma;
-	    font-style: normal;
-	    font-weight: bold;
-	}
-	h2{
-		margin-top: 15px;
-	}
-	.ct_header .step_location {
-	    float: right;
-	    margin-top: 20px;
-	}
-	.ct_header .step_location span{
-	    font-size: 22px;
-	    color: gray;
-	}
-	.ct_header .step_location>span:first-child {
-	    padding-left: 0;
-	}
-	.ct_header .step_location .step_location_2 {
-	    color: #ff5000;
-	    font-weight: bold;
-	}
-	.pay .product {
-		width: 100%;
-	    height: 160px;
-	    padding: 20px 20px;
-	    border-top: 3px #959da6 solid;
-	    border-bottom: 1px #dfe2e6 solid;
-	    margin-top: 20px;
-	}
-	.pay .product .thumb {
-	    display: block;
-	    float: left;
-	    width: 124px;
-	    height: 120px;
-	    margin-right: 26px;
-	}
-	.pay .product .p_title {
-    float: left;
-    width: 820px;
-    margin: 30px 0 0 0;
-}
-.pay .product .p_title span.txt1 {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 17px;
-    color: #16181a;
-    letter-spacing: -.5px;
-}
-.col_orange {
-    color: #ff5000;
-}
-.pay .product .p_title span.txt1 .col_orange {
-    margin-left: 4px;
-}
-i, em{
-    font-style: normal;
-}
-.pay .product .p_title span.txt2 {
-    margin-top: 16px;
-    font-size: 13px;
-    line-height: 16px;
-    color: #959da6;
-}
-.info_section {
-    position: relative;
-    margin-top: 60px;
-}
-.info_section h4 {
-    font-weight: 700;
-    font-size: 18px;
-    -webkit-font-smoothing: antialiased;
-}
-.info_section .tbl_wrap {
-    position: relative;
-    margin-top: 14px;
-}
-table {
-	width: 100%;
-    border-top: 2px #959da6 solid;
-    border-bottom: 1px #dfe2e6 solid;
-}
-table th {
-    height: 60px;
-    padding-left: 20px;
-    font-size: 15px;
-    letter-spacing: -1px;
-    color: #5b5e63;
-    text-align: left;
-    -webkit-font-smoothing: antialiased;
-}
-table td{
-	color: #16181a;
-}
-table td, table th {
-    
-	border-bottom: 1px #dfe2e6 solid;
-    
-    vertical-align: middle;
-}
-.selectric-hide-select select{
-	width: 250px;
-    height: 30px;
-    border: 1px #dfe2e6 solid;
-}
-table thead {
-    background-color: #fafafa;
-}
-table td .coupon_thead {
-    height: 31px;
-    font-size: 14px;
-    line-height: 31px;
-    color: #16181a;
-    vertical-align: middle;
-}
-.valPoint{
-	width: 150px;
-    height: 30px;
-    float: left;
-    border: 1px #dfe2e6 solid;
-    text-align: right;
-    padding-right: 10px;
-}
-.curPoint{
-	    width: 500px;
-    height: 30px;
-    float: left;
-    vertical-align: middle;
-    margin-left: 10px;
-}
-.curPoint span{
-	font-weight: bold;
-}
-table.product_table {
-    border-bottom: 1px #6c7580 solid;
-}
-table.product_table th {
-    padding: 0;
-    background-color: #fff;
-    text-align: center;
-}
-table.product_table td {
-    height: auto;
-}
-table.product_table td.thumb {
-    padding: 29px 0;
-    vertical-align: top;
-}
-table td .product_thumb {
-    padding: 0 0 0 20px;
-}
-table td .product_thumb img {
-    width: 120px;
-    height: 120px;
-    vertical-align: top;
-}
-table td .product_title {
-    padding: 39px 30px 30px 0;
-}
-table td .product_title .info li {
-    position: relative;
-    padding-right: 60px;
-    border-bottom: 1px #dfe2e6 solid;
-    font-size: 11px;
-    color: #5b6065;
-}
-li {
-    list-style: none;
-}
-table td .product_title .info li .name {
-	width: 400px;
-    display: block;
-    padding: 15px 0 14px 0;
-    line-height: 16px;
-    font-weight: 700;
-    font-size: 14px;
-    color: #16181a;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-table td .product_title .info li .num {
-    position: absolute;
-    top: 0;
-    right: 0;
-    line-height: 46px;
-    font-size: 13px;
-}
-table td .product_title .amountBtn {
-    margin-top: 10px;
-}
-table td .product_title .amountBtn button{
-    width: 100px;
-    height: 30px;
-    border-width: 1px;
-    border: 1px gray solid;
-    background-color: white;
-}
-table .align_center {
-    padding: 0;
-    text-align: center;
-}
-.int_blue {
-    font-weight: 700;
-    font-size: 14px;
-    font-family: tahoma,"돋움",Dotum,sans-serif;
-    color: #06349d;
-}
-.int_blue .won {
-    font-weight: 700;
-    font-size: 12px;
-}
-.delivery_cont [class^=delivery_] {
-    width: 60px;
-    margin: 0 auto;
-    font-size: 11px;
-    line-height: 1.3;
-    letter-spacing: -.8px;
-}
-.delivery_cont .delivery_free {
-    margin-bottom: 10px;
-    padding: 5px 0 3px;
-    border: 1px solid #ff5000;
-    color: #ff5000;
-}
-.delivery_cont .delivery {
-    color: #16181a;
-}
-.int {
-    font-size: 14px;
-    font-family: tahoma,"돋움",Dotum,sans-serif;
-    color: #16181a;
-    letter-spacing: -.4px;
-}
-.int .won {
-    font-weight: 700;
-    font-size: 12px;
-    font-family: tahoma,"돋움",Dotum,sans-serif;
-}
-.int_black_big {
-    font-weight: 700;
-    font-size: 16px;
-    font-family: tahoma,"돋움",Dotum,sans-serif;
-    color: #16181a;
-}
-table tfoot {
-    background-color: #fafafa;
-}
-table td .money_sum ul {
-    float: right;
-    width: 317px;
-    padding: 16px 20px 16px 0;
-}
-table td .money_sum ul li {
-    overflow: hidden;
-    padding: 13px 0;
-    border-top: 1px #dfe2e6 solid;
-    text-align: left;
-}
-table td .money_sum ul li:first-child {
-    border-top: 0;
-}
-table td .money_sum ul li .title {
-    float: left;
-    font-weight: 700;
-    font-size: 14px;
-    font-family: "Nanum Gothic","돋움",dotum,"Apple SD Gothic Neo",sans-serif;
-    -webkit-font-smoothing: antialiased;
-}
-.int_black_big {
-    font-weight: 700;
-    font-size: 16px;
-    font-family: tahoma,"돋움",Dotum,sans-serif;
-    color: #16181a;
-}
-table td .money_sum ul li .int_black_big {
-    float: right;
-    margin-top: -1px;
-}
-table .bd0 {
-    border-bottom: 0 none;
-}
-table td .money_tot {
-    height: 76px;
-    padding: 0 20px;
-    line-height: 76px;
-}
-table td .money_tot em {
-    float: left;
-    font-weight: 700;
-    font-size: 20px;
-    -webkit-font-smoothing: antialiased;
-}
-table td .money_tot .int_black_big {
-    float: right;
-}
-table td .money_tot .int_black_big i {
-    line-height: 80px;
-}
-
-.btn_buy_area {
-    margin-top: 60px;
-    text-align: center;
-}
-.btn_buy_area .btn_cancel {
-    width: 276px;
-    height: 64px;
-    margin-right: 4px;
-    border: 2px solid #ff5000;
-    background-color: white;
-    color: #ff5000;
-    
-    font-size: 25px;
-    font-weight: bold;
-}
-.btn_buy_area .btn_buy {
-    width: 276px;
-    height: 64px;
-    background-color: #ff5000;
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
-}
-</style>
+<link rel="stylesheet" href="../../resources/css/csy/product/productPay.css">
 </head>
 <body>
 	<c:import url="../../tmp/header.jsp"/>
@@ -383,8 +36,8 @@ table td .money_tot .int_black_big i {
 						</span>
 						<p class="p_title">
 							<span class="txt1">
-								<em class="col_orange">
-									<i>${proList[0].name}</i> 상품 외 <i>${fn:length(proList)-1}</i>개
+								<em class="col_orange orderName">
+									<i>${proList[0].name}</i><c:if test="${fn:length(proList)-1 ne 0}"> 상품 외 <i>${fn:length(proList)-1}</i>개</c:if>
 								</em>의 상품을 주문합니다.
 							</span><br><br> 
 							<span class="txt2">선택하신 상품의 가격과 옵션정보는 하단 주문상품 정보에서 확인하실 수 있습니다.</span>
@@ -404,23 +57,17 @@ table td .money_tot .int_black_big i {
 										</colgroup>
 										<tbody id="_shipping_content">
 											<tr>
-												<th scope="row">배송지 선택</th>
-												<td>
-												</td>
-											</tr>
-											<tr>
 												<th scope="row" class="bd0">이름</th>
-												<td><em class="oname">최소영</em></td>
+												<td><em class="oname">${memberDTO.name}</em><button type="button" class="chg" onclick="changeInfo('oname')">수정</button></td>
 											</tr>
 											<tr>
 												<th scope="row" class="bd0">연락처</th>
-												<td><em class="text ophone">010-9871-9917</em>
+												<td><em class="text ophone">${memberDTO.phone}</em><button type="button" class="chg" onclick="changeInfo('ophone')">수정</button>
 												</td>
 											</tr>
 											<tr>
 												<th scope="row" class="bd0">주소</th>
-												<td><em class="text oaddress">(440-831) 경기 수원시 장안구 정자2동
-														정자KTe-편한세상아파트 103동 701호</em></td>
+												<td><em class="text oaddress">${memberDTO.address}</em><button type="button" class="chg" onclick="changeInfo('oaddress')">수정</button></td>
 											</tr>
 											<tr>
 												<th scope="row" class="bd0">배송 메모</th>
@@ -446,6 +93,24 @@ table td .money_tot .int_black_big i {
 											</tr>
 										</tbody>
 									</table>
+									<!-- Modal -->
+									<div class="modal fade" id="myModal" role="dialog">
+										<div class="modal-dialog">									
+											<!-- Modal content-->
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+													<h4 class="modal-title" style="font-weight: bold;">이름 수정</h4>
+												</div>
+												<div class="modal-body">
+													<p><span class="mTitle">수정할 이름 : </span><input type="text" class="chCon"></p>													
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default chInfo" data-dismiss="modal">수정하기</button>
+												</div>
+											</div>									
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -464,14 +129,14 @@ table td .money_tot .int_black_big i {
 											<td class="coupon_td">
 												<div class="coupon_thead">
 													<input type="text" class="valPoint">
-													<div class="curPoint">P (총 사용 가능 포인트: <span class="col_orange totalPoint">10,240</span>P)</div>
+													<div class="curPoint">P (총 사용 가능 포인트: <span class="col_orange totalPoint"><fmt:formatNumber value="${memberDTO.point}" groupingUsed="true" /></span>P)</div>
 												</div>
 											</td>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
-											<th scope="row">적립예정 금액</th>
+											<th scope="row">사용예정 금액</th>
 											<td><span class="int"><em class="apPoint">0</em><i class="won">원</i></span>
 											</td>
 										</tr>
@@ -516,9 +181,6 @@ table td .money_tot .int_black_big i {
 																	<em class="num"><i class="oNum" data-pronum="${dto.pronum}">${pAmountList[i.index]}</i>개</em></li>
 															</ul>
 														</div>
-														<div class="amountBtn">
-															<button type="button">수량 변경</button>
-														</div>
 													</div>
 												</td>
 												<td class="mgl align_center"><span class="int_blue">
@@ -536,11 +198,10 @@ table td .money_tot .int_black_big i {
 													</div>
 												</td>
 												<td rowspan="1" class="mgl align_center sum"><span
-													class="int_black_big"><em class="sumPrice">9,160</em><i class="won">원</i></span>
+													class="int_black_big"><em class="sumPrice"></em><i class="won">원</i></span>
 												</td>
-											</tr>
-										
-										</c:forEach>										
+											</tr>										
+										</c:forEach>			
 									</tbody>
 									<tfoot>
 										<tr>
@@ -573,78 +234,42 @@ table td .money_tot .int_black_big i {
 							</div>
 						</div>
 					</div>
-
-					<%-- <div class="layer_pop pop_amount" style="display: block; position: absolute; top: 1049px; left: 50%; margin-left: -303px; z-index: 1000;">
-						<button type="button" class="close _checkout_layer_btn_close">닫기</button>
-						<dl>
-							<dt>상품 수량 변경</dt>
-							<dd>
-								<div class="product">
-									<span class="thumb">
-										<img src="" >
-									</span>
-									<p class="p_title">
-										<span class="txt1">[종가집] 김치/반찬/탕 골라담기!</span> 
-									</p>
-								</div>
-								<p class="col_gray f11">
-									<em class="col_orange"> (1인당 최대 10개, 30,000원 이상 무료배송)</em>
-								</p>
-								<div class="amount _product_options"
-									data-main-deal-srl="292782777">
-									<table>
-										<colgroup>
-											<col style="width: 283px;">
-											<col style="width: 100px;">
-											<col style="width: 90px;">
-											<col>
-										</colgroup>
-										<tbody>
-											<tr class="_product_option" >
-												<td class="title"><em> a02))소풍세트))맛김치 500g*2ea </em></td>
-												<td><span class="count">
-														<button type="button"
-															class="btn_minus _btn_decrease_option_count">빼기</button>
-														<input class="_input_option_count" type="text" value="2">
-														<button type="button"
-															class="btn_plus _btn_increase_option_count">추가</button>
-												</span></td>
-												<td class="money"><em class="_option_total_amount">12,320</em>원</td>
-												<td class="center">
-													<button type="button" class="btn_del _btn_delete_option">삭제</button>
-												</td>
-											</tr>
-										</tbody>
-										<tfoot>
-											<tr>
-												<td colspan="4">
-													<div class="money_tot">
-														<em>총 주문금액</em> <span class="int_black_big"><em
-															class="_deal_total_amount">12,320</em><i class="won">원</i></span>
-													</div>
-												</td>
-											</tr>
-										</tfoot>
-									</table>
-								</div>
-								<div class="layer_btn_area">
-									<button type="button"
-										class="btn_cancel _checkout_layer_btn_close">취소</button>
-									<button type="button" class="btn_ok _btn_change_options">변경하기</button>
-								</div>
-							</dd>
-						</dl>
-					</div> --%>
 					
-					<form action="payProcess" name="frm" id="frm" method="post">
+					
+					<div class="info_section" id="_benefit">
+							<h4>결제 수단</h4>
+							<div class="tbl_wrap">
+								<table>
+									<colgroup>
+										<col style="width: 170px;">
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="row" class="bg_gray">결제방법</th>
+											<td class="coupon_td">
+												<div class="coupon_thead">
+													<input type="radio" name="payment" data-kind="card" checked="checked">카드 결제
+													<input type="radio" name="payment" data-kind="kakao">카카오페이 결제
+													<input type="radio" name="payment" data-kind="deposit">무통장 입금										
+												</div>
+											</td>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					
+					<form action="payOrderInsert" name="frm" id="frm" method="post">
 						<input type="hidden" name="memberid" id="memberid">
 						<input type="hidden" name="o_name" id="o_name">
 						<input type="hidden" name="o_phone" id="o_phone">
 						<input type="hidden" name="o_address" id="o_address">
-						<input type="hidden" name="o_admsg" id="o_admsg">
 						<input type="hidden" name="uPoint" id="uPoint">
 						<input type="hidden" name="orderlist" id="orderlist">
 						<input type="hidden" name="totprice" id="totprice">
+						<input type="hidden" name="ordername" id="ordername">
+						<input type="hidden" name="status" id="status">
 					</form>
 					
 					
@@ -661,12 +286,18 @@ table td .money_tot .int_black_big i {
 	<c:import url="../../tmp/footer.jsp"/>
 	
 	<script type="text/javascript">
+		var member = '${memberDTO}';
+		if(member == ''){
+			alert("로그인이 필요한 서비스입니다.");
+			location.href="../cart/productCart";
+		}
 		var proList = $(".priceOne");
 		var price = 0;
+		var priceDel = 0;
 		$(".priceOne").each(function() {
 			sumPrice($(this));
 		});
-		totalPrice(price);
+		totalPrice(priceDel);
 		
 		//적용 포인트 입력
 		$(".valPoint").keydown(function(e) {
@@ -675,27 +306,40 @@ table td .money_tot .int_black_big i {
 			}
 		});
 		
+		//포인트 입력시
 		$(".valPoint").blur(function() {
-			var totalPoint = 10920;
+			var totalPoint = $(".totalPoint").html().replace(",", "")*1;
 			var inputPoint = $(this).val();
+			var totalprice = $(".totalPrice").html().replace(",", "")*1;
 			if(inputPoint != ''){
 				if(Math.floor(inputPoint) == inputPoint && $.isNumeric(inputPoint)){
 					//입력한 포인트 값이 숫자이고 정수인지 체크
 					if(inputPoint < 0){
 						alert("적립금은 -가 될 수 없습니다.\n적립금 사용금액을 다시 입력해 주세요.");
 						$(this).val("");
+						$(this).blur();
 					}else if(inputPoint > totalPoint){
 						alert("사용가능 적립금보다 많습니다.\n적립금 사용금액을 다시 입력해 주세요.");
 						$(this).val("");
+						$(this).blur();
 					}else{
-						//숫자 잘 입력
-						apPoint(inputPoint);
-						totalPrice(price);
+						if(inputPoint > totalprice){
+							alert("적립금이 총 결제 금액보다 많습니다.");
+							$(this).val("");
+							$(this).blur();
+						}else{
+							//숫자 잘 입력
+							apPoint(inputPoint);
+							totalPrice(priceDel);
+						}						
 					}
 				}else{
 					alert("입력하신 적립금이 숫자가 아닙니다.");
 					$(this).val("");
 				}
+			}else{
+				apPoint(0);
+				totalPrice(priceDel);
 			}
 		});
 		
@@ -703,6 +347,7 @@ table td .money_tot .int_black_big i {
 		//각각의 가격 합계
 		function sumPrice(proOne) {
 			var priceOne = proOne.html().replace(",", "")*1;
+			priceDel += priceOne;
 			if(priceOne < 30000){
 				priceOne += 3000;
 			}
@@ -728,6 +373,32 @@ table td .money_tot .int_black_big i {
 			$(".pointVal").html(Number(point).toLocaleString('en'));
 		}
 		
+		function changeInfo(kind) {
+			if(kind == 'oaddress'){
+				goPopup();
+			}else{
+				$(".chInfo").attr("data-k", kind);
+				if(kind == 'oname'){
+					$(".modal-title").html("이름 수정");
+					$(".mTitle").html("수정할 이름 : ");
+					$(".chCon").attr("type", "text").removeAttr("maxlength").removeAttr("pattern");
+				}else if(kind == 'ophone'){
+					$(".modal-title").html("전화번호 수정");
+					$(".mTitle").html("수정할 번호 : ");
+					$(".chCon").attr("type", "tel").attr("maxlength","11").attr("pattern","[0-9]{10}[0-9]?");					
+				}
+				$('#myModal').modal();
+			}
+		}
+		
+		//개인정보 수정
+		$(".chInfo").click(function() {
+			var kind = $(this).attr("data-k");
+			$("."+kind).html($(".chCon").val());
+			$(".chCon").val("")
+		});
+		
+		//결제 창 이동
 		$(".btn_buy").click(function() {
 			var oNum = $(".oNum");
 			var i = 0;
@@ -742,32 +413,49 @@ table td .money_tot .int_black_big i {
 				}				
 			});
 			json += ']';
-			alert(json);
-			alert($(".oaddmsg").val());
 			
-			frm.memberid.value = 'soyoung';
+			var ordername = '${proList[0].name}';
+			var tmp = '${fn:length(proList)-1}';
+			if(tmp != '0'){
+				ordername += ' 외 ${fn:length(proList)-1}개';
+			}
+			
+			frm.memberid.value = '${memberDTO.email}';
 			frm.o_name.value = $(".oname").html();
 			frm.o_phone.value = $(".ophone").html().replace(/-/gi,"");
 			frm.o_address.value = $(".oaddress").html();
-			frm.o_admsg.value = $(".oaddmsg").val();
 			frm.uPoint.value = $(".pointVal").html().replace(/,/gi,"");
 			frm.orderlist.value = json;
 			frm.totprice.value = $(".totalPrice").html().replace(/,/gi,"")*1;
+			frm.ordername.value = ordername;			
+			frm.status.value = $("input[name='payment']:checked").attr("data-kind");
 			
-			//frm.submit();
-			
-			/* $.ajax({
-				type: "POST",
-				url: "payProcess",
-				success: function(data) {
-					alert(data);
-					frm.submit();
-				}				
-			}); */
-			
-			var str = frm.serializeObject();
-			alert(str);
+			frm.submit();			
 		});
+		
+		function goPopup(){
+			// 주소검색을 수행할 팝업 페이지를 호출합니다.
+			// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+			var pop = window.open("../../member/popup/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+			
+			// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+		    //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+		}
+		
+		function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
+			// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+			
+			//document.form_insert.roadFullAddr.value = roadFullAddr;
+			var oriAdd = $(".oaddress").html();
+			$(".oaddress").html(roadFullAddr);
+			var address = $(".oaddress").html();
+			if(address==""|| address==null){
+				$(".oaddress").html(oriAdd);
+				return 0;
+			}else{
+				return 1;
+			}
+	}
 	</script>
 </body>
 </html>

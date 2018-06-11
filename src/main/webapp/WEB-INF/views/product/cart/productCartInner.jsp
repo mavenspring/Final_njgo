@@ -6,7 +6,7 @@
 <form action="" name="frm" id="frm">
 	<input type="hidden" name="pNumList" id="pNumList">
 	<input type="hidden" name="pAmountList" id="pAmountList">
-	<input type="hidden" name="memberid" value="soyoung">
+	<input type="hidden" name="memberid" value="${memberDTO.email}">
 </form>
 <table class="cart_sts">
 	<tr class="sts_top" height="50px;">
@@ -18,8 +18,9 @@
 		<td width="20%">상품금액</td>
 		<td width="15%">배송비</td>
 	</tr>
-	
+	<c:set var="count" value="${fn:length(proList)}"/>
 	<c:forEach items="${proList}" var="pdto" varStatus="i">
+		<c:if test="${pdto.amount ne 0}">
 		<tr class="sts_one">
 			<td class="one_chk">
 				<div class="check_btn on chkbox_one">
@@ -67,8 +68,12 @@
 				</div>
 			</td>
 		</tr>
+		</c:if>
+		<c:if test="${pdto.amount eq 0}">
+			<c:set var="count" value="${count-1}" />
+		</c:if>
 	</c:forEach>
-	<c:if test="${proList eq null}">
+	<c:if test="${count eq 0}">
 		<tr class="sts_one none">
 			<td colspan="4">장바구니에 담긴 상품이 없습니다.</td>
 		</tr>
@@ -86,7 +91,6 @@
 			<p class="guide_txt">카트에 담긴 상품은 최대 5일까지 보관되며 매진될 경우 자동으로 삭제됩니다.</p>
 		</td>
 	</tr>
-
 </table>
 
 
@@ -150,9 +154,18 @@
 	
 	/********** input textbox로 직접 수량 변경 시  ************/
 	$(".ip_quantity").keyup(function() {
+		var cntVal = $(this).val()*1;
+		if(cntVal > 10){
+			alert("최대 주문 수량은 10개입니다.");
+			$(this).val(1);
+		}else if(cntVal < 1){
+			alert("수량을 다시 확인해주세요.");
+			$(this).val(1);
+		}
 		change_price($(this));
 	});
 	
+	/******************** 수량에 따른 가격 변동 *********************/
 	function change_price(inputThis) {
 		var cntVal = inputThis.val()*1;
 		var priOne = inputThis.parents(".one_info").siblings(".one_price").find("input").val()*1;
@@ -171,6 +184,7 @@
 		total_price($(".chk_one:checked"));
 	}
 	
+	/******************** 체크, 수량변경 시 가격 변동 *********************/
 	function total_price(checkedList) {
 		var totalPrice = 0;
 		var totalDel = 0;
@@ -190,11 +204,11 @@
 	 	$("._total_amount").html(Number(total).toLocaleString('en')+" ");
 	}
 	
-	
+	/******************** 선택된 장바구니 삭제 *********************/
 	$(".chk_del").click(function() {
 		var list = new Array();
 		var chk_box = $(".chk_one:checked");
-		var memberid= 'soyoung';
+		var memberid= '${memberDTO.email}';
 		var i = 0;
 		chk_box.each(function() {
 			list[i] = $(this).attr("data-cartid");
@@ -219,7 +233,7 @@
 		var pNumList = new Array();
 		var pAmountList = new Array();
 		var chk_box = $(".chk_one:checked");
-		var memberid= 'soyoung';
+		var memberid= '${memberDTO.email}';
 		var i = 0;
 		chk_box.each(function() {
 			pNumList[i] = $(this).attr("data-pronum");			
@@ -231,7 +245,7 @@
 		}else{
 			if(memberid == ''){
 				//로그인창 trigger
-				
+				location.href="../../member/login?path=/product/cart/productCart";
 			}else{
 				frm.pNumList.value = pNumList;
 				frm.pAmountList.value = pAmountList;
@@ -240,9 +254,6 @@
 				frm.submit();
 			}			
 		}
-
-		
-		//location.href="productPay";
 	});
 
 </script>

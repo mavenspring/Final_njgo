@@ -1,0 +1,169 @@
+@CHARSET "UTF-8";
+	.orderTitle {
+		width: 100%;
+		margin: 0 auto;
+	}
+	
+	.orderTitle h2 {
+		font-size: 25px;
+		font-weight: bold;
+		letter-spacing: -1px;
+	}
+	
+	.orderTable {
+		width: 100%;
+		padding: 10px 10px;
+	}
+	
+	.cart_sts {
+		border-top: 2px solid #959da6;
+		border-bottom: 1px solid #d6dadd;
+		width: 100%;
+		margin: 0 auto;
+	}
+	
+	.cart_sts td {
+		vertical-align: middle;
+		text-align: center;
+		font-size: 13px;
+	}
+	
+	.sts_top, .sts_one {
+		border-bottom: 1px solid #d6dadd;
+	}
+	
+	.ordImg {
+		width: 80%;
+		height: 80%;
+	}
+	
+	.ordImg, .proName {
+		cursor: pointer;
+	}
+	
+	.proName {
+		display: inline-block;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 380px;
+	}
+	
+	.review {
+		width: 100px;
+		height: 25px;
+		background: black;
+		border: 1px solid gray;
+		color: white;
+		margin-top: 4px;
+	}
+	
+	.modal-backdrop {
+		display: none;
+	}
+	
+	#reviewModal .modal-body {
+		height: 500px;
+	}
+	
+	#reviewModal .modal-footer {
+		height: 65px;
+		padding: 0 0;
+		border: none;
+		text-align: center;
+	}
+	
+	.reviewWrite {
+		background-color: #ff7433;
+		color: white;
+		font-weight: bold;
+		border: none;
+	}
+	
+	.reviewWrite:HOVER {
+		background-color: #ff7433;
+		color: white;
+	}
+	
+	.proInfo {
+		text-align: center;
+	}
+	
+	.proInfo .qImg {
+		margin: -20px 10px 0 10px;
+	}
+	
+	.proInfo .proImg {
+		width: 300px;
+		height: 300px;
+		margin: 0 1px;
+	}
+	
+	.proInfo span {
+		font-size: 15px;
+		font-weight: bold;
+	}
+	
+	.rating {
+		text-align: center;
+	}
+	
+	.reviewWrap {
+		margin-top: 30px;
+	}
+	
+	.reviewWrap input {
+		border: 1px solid lightgray;
+		width: 100%;
+		height: 50px;
+		font-style: italic;
+	}
+	
+	.reviewWrap span {
+		float: right;
+		position: relative;
+		top: -20px;
+		right: 5px;
+		font-size: 12px;
+	}
+	
+	.reviewWrap span em {
+		color: #ff5000;
+	}
+	
+	.paging_sy {
+		font-family: tahoma, sans-serif;
+		text-align: center;
+		font-size: 12px;
+		margin: 10px 0;
+	}
+	
+	.paging_sy .first, .paging_sy .next {
+		margin-right: -4px;
+	}
+	
+	.numbering {
+		display: inline-block;
+		padding: 3px 10px 0;
+	}
+	
+	.numbering strong {
+		color: #4c4c4c;
+		background: url(../../../images/csy/numbering_line.gif) no-repeat right 2px;
+		padding: 0 9px 0 5px;
+	}
+	
+	.numbering a {
+		color: #949494;
+		background: url(../../../images/csy/numbering_line.gif) no-repeat right 2px;
+		padding: 0 9px 0 5px;
+		cursor: pointer;
+	}
+	
+	.numbering .last {
+		background: none;
+	}
+	
+	.clear {
+		clear: both;
+	}

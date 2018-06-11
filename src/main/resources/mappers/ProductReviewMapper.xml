@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ProductReviewMapper">
+	<select id="reviewList" parameterType="com.njgo.util.RowMaker" resultType="com.njgo.dto.ProductReviewDTO">
+		select * from 
+		(select ROWNUM R, P.* from 
+		(select * from PRODUCT_REVIEW 
+		 where PRONUM=#{pronum}
+		 order by NUM DESC) P) 
+		where R between #{startRow} and #{lastRow}
+	</select>
+
+	<insert id="reviewInsert" parameterType="com.njgo.dto.ProductReviewDTO">
+		insert into PRODUCT_REVIEW values 
+		(prv_seq.nextval, #{pronum}, #{memberid}, #{contents}, SYSDATE, #{rating}, #{ordernum} )
+	</insert>
+	
+	<select id="reviewCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select NVL(COUNT(NUM), 0) from PRODUCT_REVIEW where PRONUM=#{pronum} 
+	</select>
+	
+	<select id="reviewCountMember" parameterType="com.njgo.dto.ProductReviewDTO" resultType="java.lang.Integer">
+		select NVL(COUNT(NUM), 0) from PRODUCT_REVIEW where MEMBERID = #{memberid} and PRONUM=#{pronum} and ORDERNUM=#{ordernum}
+	</select>
+</mapper>

@@ -31,6 +31,7 @@ public class PageMaker {
 		
 		rowMaker.setKind(kind);
 		rowMaker.setSearch(search);
+		rowMaker.setMemberid(search);
 		
 		return rowMaker;
 	}
@@ -40,6 +41,14 @@ public class PageMaker {
 		
 		rowMaker.setCate_major(cate_major);
 		rowMaker.setCate_minor(cate_minor);
+		
+		return rowMaker;
+	}
+	public RowMaker getRowMaker(int pronum) {
+		rowMaker = new RowMaker();
+		rowMaker.setRow(curPage, perPage);
+		
+		rowMaker.setPronum(pronum);
 		
 		return rowMaker;
 	}

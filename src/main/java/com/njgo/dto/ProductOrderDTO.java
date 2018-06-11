@@ -11,6 +11,23 @@ public class ProductOrderDTO {
 	private String o_address;
 	private String o_phone;
 	private String o_name;
+	private String status;
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	private String ordername;
+	public String getOrdername() {
+		return ordername;
+	}
+	public void setOrdername(String ordername) {
+		this.ordername = ordername;
+	}
+	public void setTotprice(Integer totprice) {
+		this.totprice = totprice;
+	}
 	public Integer getNum() {
 		return num;
 	}

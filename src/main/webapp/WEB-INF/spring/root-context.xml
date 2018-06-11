@@ -6,11 +6,25 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	<bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property value="smtp.gmail.com" name="host" />
+		<property value="587" name="port" />
+		<property value="fridgegotest@gmail.com" name="username" />
+		<property value="cjswlvkd01" name="password" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.auth">true</prop>
+			</props>
+		</property>
+	</bean>
 	
-	
-	<!-- properties파일을 읽어오는 새 객체를 생성 -->
+	<!--Mybatis properties파일을 읽어오는 새 객체를 생성 -->
+	<!-- 밑에 Connection(datasource)의 값정보에 대한 연결-->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" id="propertyPlaceholderConfigurer">
 		<property name="locations" value="classpath:mybatis/mybatis.properties"></property>
+		
 	</bean>
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
@@ -25,7 +39,8 @@
 	<!-- mapper + configuration of mybatis -->
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property> <!-- setter로 dataSource주입 -->
-		<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property> 
+		<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
+		<property value="classpath:mybatis/mybatis-config.xml" name="configLocation"/> 
 		<!-- <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property> -->
 		<!-- mapper폴더의 위치: 실제 배포시 src/main의 경로는 삭제되므로, classpath:패키지 하위경로/*Mapper.xml 로 작성해야 함-->
 	</bean>

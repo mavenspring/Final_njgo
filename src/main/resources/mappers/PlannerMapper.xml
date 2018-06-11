@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PlannerMapper">
+	
+	<!-- selectList -->
+	<select id="selectList" parameterType="java.lang.String" resultType="PlannerDTO">
+		select * from planner 
+		where mid = #{mid}
+		and regdate between TO_CHAR(sysdate,'yyyymmdd') and TO_CHAR(sysdate+6,'yyyymmdd')
+		order by regdate
+	</select>
+	
+	<!-- selectView -->
+	<select id="selectView" parameterType="PlannerDTO" resultType="PlannerDTO">
+		select * from planner 
+		where mid = #{mid}
+		and regdate = #{regdate}
+	</select>
+	
+	<!-- Insert -->
+	<insert id="insert" parameterType="PlannerDTO">
+		insert into planner
+		(pnum, breaks, lunch, dinner, addmenu, regdate, mid) values
+		(planner_seq.nextval, #{breaks}, #{lunch}, #{dinner}, #{addmenu}, #{regdate}, #{mid}) 
+	</insert>
+	
+	
+	<!-- Update -->
+	<update id="update" parameterType="plannerDTO">
+	update planner set 
+	breaks = #{breaks}, lunch= #{lunch}, dinner=#{dinner}, addmenu=#{addmenu}
+	where mid = #{mid}
+	and regdate = #{regdate}
+	</update>
+	
+	
+		
+	<!-- Select -->	
+	<select id="searchmine" parameterType="RecipeDTO" resultType="RecipeDTO">
+	<!-- select * from recipe where foodname like '%'||#{foodname}||'%' -->
+	select * from recipe where writer=#{writer} and foodname like '%'||#{foodname}||'%'
+	</select>
+	<!-- Select -->	
+	<select id="searchall" parameterType="java.lang.String" resultType="RecipeDTO">
+		select rep_pic, foodname, num from recipe where foodname like '%'||#{foodname}||'%'
+	</select>
+	
+	<!-- minusSelect -->
+	<select id="minusplusSelect" parameterType="plannerDTO" resultType="PlannerDTO">
+		select * from planner 
+		where mid = #{mid}
+		and regdate between #{regdate} and #{regdate}+6
+		order by regdate
+	</select>
+	
+	
+	
+	
+</mapper>

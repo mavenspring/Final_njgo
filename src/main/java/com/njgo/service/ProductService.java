@@ -30,7 +30,15 @@ public class ProductService {
 		return productDAO.productUpdate(productDTO);
 	}
 	
+	public int productDelete(int pronum) throws Exception{
+		return productDAO.productDelete(pronum);
+	}
+	
 	public int productCount(RowMaker rowMaker) throws Exception{
 		return productDAO.productCount(rowMaker);
+	}
+	
+	public List<ProductDTO> productCateList(ProductDTO productDTO) throws Exception{
+		return productDAO.productCateList(productDTO);
 	}
 }

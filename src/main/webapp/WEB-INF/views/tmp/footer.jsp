@@ -1,5 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script type="text/javascript">
+	$(function() {
+		var url = location.href;
+		var	tmp = url.split('/');
+		var key = "recipeClick";
+		if(tmp[4] == 'product') {
+			key = "productClick";	
+		}
+		$.ajax({
+			url: "${pageContext.request.contextPath}/cookie/cookieList",
+			type: "POST",
+			data: {
+				key: key
+			},
+			success: function(data) {
+				$(".right_menu").html(data);
+			}
+		});
+	});
+</script>
 <footer>
 	<section class="footer_section">
 	<div class="f_inner">
@@ -33,7 +54,7 @@
 
 		<div class="f_right">
 			<p class="f_link">
-				<a href="#">공지사항</a> <span>|</span> <a href="#">Q＆A</a> <span>|</span>
+				<a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a> <span>|</span> <a href="${pageContext.request.contextPath}/qna/qnaList">Q＆A</a> <span>|</span>
 				<a href="#">개인정보처리방침</a> <span>|</span> <a href="#">이용약관</a>
 			</p>
 			<p class="f_info">
@@ -44,4 +65,8 @@
 		</div>
 	</div>
 	</section>
+	
 </footer>
+<section class="right_menu">
+
+</section>

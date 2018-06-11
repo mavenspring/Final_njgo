@@ -7,7 +7,23 @@ public class RowMaker {
 	private String search;
 	private String cate_major;
 	private String cate_minor;
+	private String memberid;
+	private int pronum;
 	
+	
+	
+	public int getPronum() {
+		return pronum;
+	}
+	public void setPronum(int pronum) {
+		this.pronum = pronum;
+	}
+	public String getMemberid() {
+		return memberid;
+	}
+	public void setMemberid(String memberid) {
+		this.memberid = memberid;
+	}
 	public String getCate_major() {
 		
 		return cate_major;

@@ -3,6 +3,22 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>	
+	<typeAliases>
+		<typeAlias alias="MemberDTO" type="com.njgo.dto.MemberDTO" />
+		<typeAlias alias="FollowDTO" type="com.njgo.dto.FollowDTO"/>
+		<typeAlias alias="MessageDTO" type="com.njgo.dto.MessageDTO"/>
+		<typeAlias type="com.njgo.dto.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.njgo.dto.QnaDTO" alias="QnaDTO"/>		
+		<typeAlias type="com.njgo.dto.RankingDTO" alias="RankingDTO"/>		
+		<typeAlias type="com.njgo.dto.MemberDTO" alias="MemberDTO"/>		
+		<typeAlias type="com.njgo.dto.RecipeDTO" alias="RecipeDTO"/>
+		<typeAlias type="com.njgo.dto.P_recommendDTO" alias="P_recommendDTO"/>		
+		<typeAlias type="com.njgo.dto.PlannerDTO" alias="PlannerDTO"/>
+	</typeAliases>
+</configuration>
   
   <!-- 현장에서 각 config항목들이 어떤 것인지를 직접 체험해가며 다른 것들도 세팅할 수 있다. -->
 <!-- <  <configuration>

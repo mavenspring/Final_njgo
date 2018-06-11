@@ -1,0 +1,194 @@
+@CHARSET "UTF-8";
+	.main_section {
+		min-height: 1000px;
+	}
+	
+	.container {
+		width: 100%;
+	}
+	
+	.ct_inner {
+		position: relative;
+		width: 100%;
+		margin: 26px auto 50px;
+	}
+	
+	.ct_header {
+		position: relative;
+		height: 100px;
+		padding-top: 34px;
+	}
+	
+	.ct_header .step_location {
+		float: right;
+		margin-top: 20px;
+	}
+	
+	.ct_header .step_location span {
+		font-size: 22px;
+		color: gray;
+	}
+	
+	.ct_header .step_location>span:first-child {
+		padding-left: 0;
+	}
+	
+	.ct_header .step_location .step_location_3 {
+		color: #ff5000;
+		font-weight: bold;
+	}
+	
+	.orderStatus {
+		width: 100%;
+	}
+	
+	.status_top {
+		padding: 35px 50px;
+		width: 100%;
+		height: 200px;
+		border: 2px solid #d6dadd;
+	}
+	
+	.top_left {
+		float: left;
+	}
+	
+	.payIcon {
+		width: 128px;
+		height: 128px;
+	}
+	
+	.top_right {
+		float: left;
+		margin-left: 30px;
+		height: 128px;
+	}
+	
+	.r1 {
+		font-size: 30px;
+		font-weight: bold;
+		margin-top: 25px;
+		letter-spacing: 1px;
+	}
+	
+	.r1 span {
+		color: #ff5000;
+	}
+	
+	.r2 {
+		font-size: 15px;
+		letter-spacing: -1px;
+	}
+	
+	.status_table {
+		margin-top: 60px;
+	}
+	
+	header>input, select, table, textarea {
+		font-size: 12px;
+		font-family: "돋움", dotum, "Apple SD Gothic Neo", sans-serif;
+	}
+	
+	.cart_sts_wrap {
+		width: 100%;
+		padding: 10px 20px;
+	}
+	
+	.cart_sts {
+		border-top: 2px solid #959da6;
+		border-bottom: 2px solid #d6dadd;
+		width: 80%;
+		margin: 0 auto;
+	}
+	
+	.cart_sts td {
+		vertical-align: middle;
+		text-align: center;
+		font-size: 13px;
+	}
+	
+	.sts_top, .sts_one {
+		border-bottom: 1px solid #d6dadd;
+	}
+	
+	.cart_sts .tTitle {
+		border-right: 1px solid #d6dadd;
+		font-size: 15px;
+		font-weight: bold;
+		letter-spacing: -2px;
+	}
+	
+	.table_title {
+		width: 80%;
+		margin: 0 auto;
+	}
+	
+	.table_title h2 {
+		font-size: 25px;
+		font-weight: bold;
+		letter-spacing: -1px;
+	}
+	
+	.tBottom {
+		width: 80%;
+		margin: 0 auto;
+		font-size: 12px;
+		margin-top: 5px;
+		text-align: right;
+		color: #959da6;
+	}
+	
+	.tBottom a {
+		text-decoration: none;
+		cursor: pointer;
+	}
+	
+	.bt_area {
+		width: 750px;
+		height: 65px;
+		text-align: center;
+		vertical-align: middle;
+		margin: 150px auto;
+	}
+	
+	.order_btn {
+		float: left;
+		width: 230px;
+		height: 62px;
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 62px;
+		border: 2px solid #ffcc00;
+		margin: 0 10px;
+		letter-spacing: -2px;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+	}
+	
+	.order_btn a {
+		color: black;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	
+	.order_btn.chk {
+		background-color: #74b243;
+	}
+	
+	.order_btn.chk a {
+		color: white;
+	}
+	
+	.order_btn.shop {
+		background-color: #ffcc00;
+	}
+	
+	.order_btn.shop a {
+		color: white;
+	}
+	
+	.totPrice {
+		color: #ff5000;
+		font-size: 16px;
+		font-weight: bold;
+	}

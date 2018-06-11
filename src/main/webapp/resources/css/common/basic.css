@@ -126,7 +126,7 @@
 		display: inline-block;
     	position: relative;
     	background-color: white;
-		height: 405px;
+		height: 285px;
 		width: 150px;
 		background-color: white;
 		border: 3px solid #ffcc00;
@@ -164,6 +164,9 @@
 	.member_box a {
 		color: #333;
 		text-decoration: none;
+	}
+	#memberBtn{
+		cursor: pointer;
 	}
 	
 	/* footer */

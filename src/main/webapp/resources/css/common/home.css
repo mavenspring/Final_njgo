@@ -1,0 +1,170 @@
+@CHARSET "UTF-8";
+.adSection {
+		width: 100%;
+		height: 180px;
+		background-image: url("../../images/common/main_ad.jpg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.homeR_Section {
+		padding: 40px;
+		width: 100%;
+		height: 380px;
+		border-top: 2px solid #e7e7e7;
+		margin: 20px 0;
+	}
+	.homeR_Section_title {
+		font-size: x-large;
+		font-weight: bold;
+		color: #333;
+	}
+	.homeR_Section_contents {
+		width: 100%;
+		margin-top: 30px;
+	}
+	.homeR_contents_wrap {
+		width: 23%;
+		height: 230px;
+		border: 1px solid #e7e7e7;
+		float: left;
+		cursor: pointer;
+		box-shadow: 0 2px 3px #eee;
+	}
+	.homeR_contents_wrap:hover {
+		border: 1px solid #ffcc00;
+	}
+	.homeR_contents_wrap:not(:last-child) {
+		margin-right: 2%;
+	}
+	.homeR_contents_image {
+		width: 100%;
+		height: 70%;
+		border-bottom: 1px solid #e7e7e7;
+	}
+	.homeR_contents_image img {
+		width: 100%;
+		height: 100%;	
+	}
+	.homeR_contents_text {
+		width: 100%;
+		height: 30%;
+		background-color: white;
+		padding: 10px 15px;
+	}
+	.homeR_contents_title {
+		width: 100%;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: large;
+		font-weight: bold;
+	}
+	.homeR_contents_writer {
+		margin-top: 5px;
+	}
+	.weatherSection {
+		width: 100%;
+		height: 600px;
+		border-bottom: 1px solid #e7e7e7;
+		background-image: url("../../images/common/72d175a8.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+	.overlap {
+		background-color: rgba(0,0,0,0.6);
+		padding: 50px;
+		z-index: 1;
+		width: 100%;
+		height: 600px;
+		text-align: center;
+		color: white;
+	}
+	.overlap * {
+		z-index: 5;
+	}
+	.weatherTitle {
+		font-size: 4em;
+		font-weight: bold;
+	}
+	.weatherSubTitle {
+		margin: 10px 0 15px 0;
+		font-size: large;
+		font-weight: bold;
+	}
+	#refreshBtn {
+		width: 60px;
+		height: 60px;
+		cursor: pointer;	
+	}
+	.refreshBtn_rotation {
+		width: 60px;
+		height: 60px;
+		-webkit-animation: spin 1s infinite linear;
+		-o-animation: spin 1s infinite linear;
+		-moz-animation: spin 1s infinite linear;
+		animation: spin 0.5s infinite linear;
+	}
+	@-webkit-keyframes spin {
+		0%  {-webkit-transform: rotate(0deg);}
+		100% {-webkit-transform: rotate(360deg);}
+	}
+	@-moz-keyframes spin {
+		0%  {-moz-transform: rotate(0deg);}
+		100% {-moz-transform: rotate(360deg);}
+	}
+	@keyframes spin {
+		0%  {transform: rotate(0deg);}
+		100% {transform: rotate(360deg);}
+	}
+	.stoped {    
+	    -webkit-animation-play-state: paused;
+	    -moz-animation-play-state: paused;
+	    -ms-animation-play-state: paused;
+	    -o-animation-play-state: paused;
+	    animation-play-state: paused;
+	}
+	#weather_img {
+		margin-top: -5px;
+	}
+	#temperature {
+		font-size: 1.5em;
+		font-weight: bold;
+		color: lightcoral;
+		margin-left: 10px;
+	}
+	.recommendRecipe {
+		margin-top: 40px;
+		width: 100%;
+		height: 200px;
+	}
+	.recommendRecipe_sub {
+		float: left;
+		width: 33%;
+		text-align: center;
+	}
+	.recommendRecipe_sub img {
+		width: 83%;
+    	height: 180px;
+    	cursor: pointer;
+	}
+	.overlap_recipeImg {
+		width: 83%;
+    	height: 180px;
+    	background-color: rgba(0,0,0,0.2);
+    	z-index: 5;
+    	display: none;
+    	position: absolute;
+	}
+	.recommendRecipe_sub_title {
+		margin: 20px auto;
+		font-weight: bold;
+		font-size: large;
+		height: 30px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		width: 90%;
+		
+	}

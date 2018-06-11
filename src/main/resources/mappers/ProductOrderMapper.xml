@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProductOrderMapper">
+	<select id="orderList" parameterType="com.njgo.util.RowMaker" resultType="com.njgo.dto.ProductOrderDTO">
+		select * from 
+		(select ROWNUM R, P.* from 
+		(select * from PRODUCT_ORDER
+		 order by NUM DESC) P) 
+		where R between #{startRow} and #{lastRow}
+	</select>
+
+	<select id="orderCount" parameterType="com.njgo.util.RowMaker" resultType="java.lang.Integer">
+		select nvl(count(NUM), 0) from PRODUCT_ORDER 
+	</select>
+
+	<select id="orderViewMember" parameterType="java.lang.String" resultType="com.njgo.dto.ProductOrderDTO">
+		select * from PRODUCT_ORDER where NUM=(select MAX(NUM) from PRODUCT_ORDER where MEMBERID=#{memberid}) 
+	</select>
+	
+	<select id="orderMember" parameterType="com.njgo.util.RowMaker" resultType="com.njgo.dto.ProductOrderDTO">
+		select * from 
+		(select ROWNUM R, P.* from 
+		(select * from PRODUCT_ORDER where MEMBERID=#{memberid}
+		 order by NUM DESC) P) 
+		where R between #{startRow} and #{lastRow} 
+	</select>
+	
+	<select id="orderCountMember" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select nvl(count(NUM), 0) from PRODUCT_ORDER where MEMBERID=#{memberid}
+	</select>
+	
+	
+
+	<insert id="orderInsert" parameterType="com.njgo.dto.ProductOrderDTO">
+		insert into PRODUCT_ORDER values ( ORDER_SEQ.NEXTVAL, #{memberid}, #{orderlist}, #{totprice}, SYSDATE, #{o_address}, #{o_phone}, #{o_name},
+			<if test="status == 'deposit'">'입금대기'</if>
+			<if test="status != 'deposit'">'결제완료'</if>
+		)
+	</insert>
+</mapper>

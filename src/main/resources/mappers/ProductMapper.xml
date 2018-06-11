@@ -38,4 +38,14 @@
 		F_MAINIMG=#{f_mainimg}, O_MAINIMG=#{o_mainimg}, F_DETAILIMG=#{f_detailimg}, O_DETAILIMG=#{o_detailimg} 
 		where PRONUM=#{pronum}
 	</update>
+	
+	<delete id="proDelete" parameterType="java.lang.Integer">
+		delete PRODUCT where PRONUM = #{pronum}
+	</delete>
+	
+	
+	<!-- 같은 카테고리 상품 불러오기 -->
+	<select id="proCateList" parameterType="com.njgo.dto.ProductDTO" resultType="com.njgo.dto.ProductDTO">
+		select PRONUM, NAME, PRICE, F_MAINIMG from PRODUCT where CATE_MAJOR=#{cate_major} and CATE_MINOR=#{cate_minor} and PRONUM != #{pronum}
+	</select>
 </mapper>

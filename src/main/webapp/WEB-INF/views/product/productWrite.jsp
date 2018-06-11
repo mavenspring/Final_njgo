@@ -8,192 +8,10 @@
 <link rel="stylesheet" href="../resources/css/common/reset.css">
 <c:import url="../tmp/Bootstrap.jsp"/>
 <link rel="stylesheet" href="../resources/css/common/basic.css">
-<style type="text/css">
-	.main_section{
-		min-height: 500px;
-	}
-	li {
-	    display: block;
-	}
-	legend{
-		margin-bottom: 10px;
-		border-bottom: none;
-		font-weight: bold;
-	}
-	.form-style-tbl {
-	    width: 100%;
-	    height: auto;
-	    border-top: 1px solid #252525;
-	}
-		.table1 > table {
-	    width: 100%;
-	    border-top: 1px solid #717171;
-	}
-	.form-style-tbl th {
-	    padding: 0;
-	    border: 1px solid #e1e1e1;
-	    border-top: 0;
-	    border-left: 0;
-	    background-color: #f5f5f5;
-	    font-family: 'Dotum';
-	    font-size: 12px;
-	    color: #676767;
-	    text-align: center;
-	    vertical-align: middle;
-	    font-weight: normal;
-	}
-	.table1 table tbody th {
-	    padding: 30px 0 30px 0;
-	    vertical-align: middle;
-	    text-align: center;
-	    width: 130px;
-	    background: #f9f9f9;
-	    border-bottom: 1px solid #dbdbdb;
-	    color: #777;
-	}
-	.table1 > table > tbody > tr > th {
-	    background: #f9f9f9;
-	    border-bottom: 1px solid #dbdbdb;
-	    padding: 10px 16px;
-	    color: #777;
-	}
-	.board-write td {
-	    padding-left: 20px;
-	    padding-right: 20px;
-	}
-	.table1 td {
-	    padding: 15px 19px;
-	    font-family: 'Dotum';
-	    font-size: 12px;
-	    line-height: 1.5;
-	}
-	.form-style-tbl td {
-	    padding: 15px 19px;
-	    border-bottom: 1px solid #e1e1e1;
-	}
-	.table1 > table > tbody > tr >td {
-	    border-bottom: 1px solid #dbdbdb;
-	    color: #444;
-	}
-	.table1 .txt-field {
-	    width: 310px;
-	    height: 40px;
-	    line-height: 40px;
-	    position: relative;
-	    padding: 0 10px;
-	    background: #fff;
-	    border: 1px solid #d0d0d0;
-	}
-	 .img_name{
-	 	width: 260px;
-	    height: 260px;
-	    position: relative;
-	    padding: 10px 10px;
-	    background: #fff;
-	    border: 1px solid #d0d0d0;
-	    display: table-cell;
-	    text-align: center;
-	    vertical-align: middle;
-	 }
-	 .detailimg_name{
-	 	width: 500px;
-	    height: 800px;
-	    position: relative;
-	    padding: 10px 10px;
-	    background: #fff;
-	    border: 1px solid #d0d0d0;
-	    display: table-cell;
-	    text-align: center;
-	    vertical-align: middle;
-	 }
-	 #load_Img{
-	 	width: auto;
-	 	max-width: 98%;
-	    height: auto;
-	    max-height: 98%;
-	 }
-	 #load_detailImg{
-	 	width: auto;
-	 	max-width: 98%;
-	    height: auto;
-	    max-height: 98%;
-	 }
-	.board-write .txt-field {
-	    width: 310px !important;
-	}
-	.form-style-tbl .txt-field {
-	    height: 43px;
-	    padding: 0;
-	    border: 1px solid #e1e1e1;
-	    float: left;
-	}
-	.form-style-tbl .txt-field input[type=text], .form-style-tbl .txt-field input[type=number] {
-	    height: 38px;
-	    border: 0;
-	    line-height: 38px;
-	}
-	
-	.board-write td .textarea textarea {
-	    width: 100%;
-	    height: 213px;
-	    padding: 15px;
-	    resize: none;
-	    font-family: 'Dotum';
-	    font-size: 12px;
-	    box-sizing: border-box;
-	}
-	.form-style-tbl .file-upload input[type=file].file {
-	    width: 120px;
-	    height: 43px;
-	    right: 130px;
-	}
-	div.file-upload div.upload-btn input.file {
-	    position: absolute;
-	    top: 0;
-	    height: 25px;
-	    cursor: pointer;
-	    opacity: 0;
-	    }
-	input[type=text], input[type=number], select {
-		width: 100%;
-	    height: 38px;
-	    line-height: 38px;
-	}
-	.category{
-		width: 310px; 
-		height: 46px; 
-		float: left;
-		border: 1px solid #e1e1e1;
-		margin-right: 20px;
-	}
-	    
-	.submit_btn{
-		color: white;
-	    margin: 0 auto;
-	    display: table;
-	    margin-top: 20px;
-	    /* background: #002f6b; */
-	    background: #252221; 
-	    width: 150px; 
-	    height: 42px; 
-	    font-family: 'SpoqaHanSans'; 
-	    border: none;
-	}
-	.submit_btn:HOVER {
-		color: #ffcc00;
-	}	
-	.amount_zero{
-		float: left;
-		color: red;
-		margin-left: 10px;
-    	margin-top: 11px;
-    	display: none;
-	}
-</style>
+<link rel="stylesheet" href="../resources/css/csy/product/productWrite.css">
 </head>
 <body>
-	<c:import url="../tmp/header.jsp"/>
-	
+	<c:import url="../tmp/header.jsp"/>	
 	<section class="main_section">
 		<div class="join-form">
 			<form name="frmWrite" id="frmWrite" action="product${path}" method="post" enctype="multipart/form-data" class="frmWrite">
@@ -325,6 +143,16 @@
 	<c:import url="../tmp/footer.jsp"/>
 	
 	<script type="text/javascript">
+	/**************** 관리자 아닐 떄  *******************/
+		var grade = '${memberDTO.grade}';
+		if(grade != '2'){
+			alert("해당 권한이 없습니다.");
+			location.href="../";
+		}else if(grade == null){
+			alert("로그인이 필요한 서비스입니다.");
+			location.href="../";
+		}
+	
 		/**************** Update일 경우 카테고리  *******************/
 		var pDTO = '${productDTO}';
 		if(pDTO != ''){
@@ -400,6 +228,7 @@
 			}
 		}
 		
+		/*********** 품절 상품 표시 ******************/
 		$("#amount").blur(function() {
 			var amount = $("#amount").val();
 			if(amount==0){

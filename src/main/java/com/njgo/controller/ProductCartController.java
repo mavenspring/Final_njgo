@@ -10,10 +10,8 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.njgo.dto.ProductCartDTO;
 import com.njgo.dto.ProductDTO;
@@ -36,7 +34,7 @@ public class ProductCartController {
 	}
 	
 	@RequestMapping(value = "cartNMInsert")
-	public String cartNMInsert(ProductCartDTO cartDTO, HttpServletRequest request, HttpServletResponse response) throws Exception{		
+	public void cartNMInsert(ProductCartDTO cartDTO, HttpServletRequest request, HttpServletResponse response) throws Exception{		
 		CookieUtils cu = new CookieUtils();
 		if(cu.isExist("cartId", request)){
 			//쿠키에 장바구니가 있을 때
@@ -56,22 +54,20 @@ public class ProductCartController {
 			cartDTO.setMemberid(randomVal);
 			cartService.cartInsert(cartDTO);
 		}
-		return "product/cart/productCartForm";
 		
 	}
 	
 	@RequestMapping(value = "cartMInsert")
-	public String cartMInsert(ProductCartDTO cartDTO, HttpServletRequest request, HttpServletResponse response) throws Exception{		
+	public void cartMInsert(ProductCartDTO cartDTO, HttpServletRequest request, HttpServletResponse response) throws Exception{		
 		if(cartService.cartIsEquals(cartDTO)>0){
 			//동일한 상품이 장바구니에 있을 때, 수량 변경
 			cartService.cartUpdateEquals(cartDTO);
 		}else{
 			cartService.cartInsert(cartDTO);			
 		}
-		return "product/cart/productCartForm";
 	}
 	@RequestMapping(value = "cartNMList")
-	public String cartNMList(String memberid, Model model, HttpServletRequest request, HttpServletResponse response) throws Exception{
+	public String cartNMList(@RequestParam(defaultValue="")String memberid, Model model, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		CookieUtils cu = new CookieUtils();
 		List<ProductCartDTO> cartMList = null;
 		List<ProductCartDTO> cartList = new ArrayList<ProductCartDTO>();
@@ -127,7 +123,6 @@ public class ProductCartController {
 	
 	@RequestMapping(value = "cartNMDelete")
 	public String cartNMDelete(String memberid, @RequestParam(value="list[]", required=true) List<String> list , HttpServletRequest request, HttpServletResponse response) throws Exception{
-		System.out.println(memberid);
 		List<Integer> cartList = new ArrayList<Integer>();
 		for(String s: list){
 			cartList.add(Integer.parseInt(s));
